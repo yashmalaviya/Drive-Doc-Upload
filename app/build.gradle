@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.example.android.drivedocupload"
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures{
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.firebase:firebase-database:20.0.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    /**
+    //Google Play Services Dependencies
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+
+    //Google play services auth Dependency to authenticate gmail account for Google drive
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
+
+    //Google Drive API Dependency
+    implementation ('com.google.apis:google-api-services-drive:v3-rev20211107-1.32.1')
+            {
+                exclude group: 'org.apache.httpcomponents'
+            }
+
+    //Google API Client for Android Dependency
+    implementation ('com.google.api-client:google-api-client-android:1.33.0')
+            {
+                exclude group: 'org.apache.httpcomponents'
+            }
+
+    //Gson for Google Client
+    implementation 'com.google.http-client:google-http-client-gson:1.33.0'
+ **/
+
+    //Firebase Dependencies for OTP Verification
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:29.3.1')
+
+    // Declare the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth'
+
+    //Volley Dependencies
+    implementation 'com.android.volley:volley:1.2.1'
+}
